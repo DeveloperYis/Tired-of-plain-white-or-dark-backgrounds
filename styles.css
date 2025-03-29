@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    overflow: hidden;
+}
+
+/* Particles Background */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* HERO SECTION */
+.hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    z-index: 1;
+    text-align: center;
+    padding: 0 20px;
+    opacity: 0;
+    animation: revealHero 2s ease-out forwards;
+    gap: 10px; /* Reduced gap to make the elements closer */
+}
+
+/* Text Animation */
+.hero h1,
+.hero p,
+.cta-button {
+    opacity: 0;
+    transform: scale(0.5);
+    clip-path: inset(0 0 0 100%);
+    animation: reconstruct 1s ease forwards;
+}
+
+/* Staggered Animation Delay */
+.hero h1 {
+    animation-delay: 0.5s;
+    font-size: 2.5rem;
+    margin-bottom: 10px; /* Reduced margin between the heading and paragraph */
+}
+
+.hero p {
+    animation-delay: 1s;
+    font-size: 0.9rem;
+    margin-bottom: 10px; /* Reduced margin between the paragraph and button */
+}
+
+.cta-button {
+    animation-delay: 1.5s;
+}
+
+/* Reveal Text Animation */
+@keyframes reconstruct {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+        clip-path: inset(0 0 0 100%);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+        clip-path: inset(0 0 0 0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Button Hover Effect */
+.cta-button {
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #ff4081, #ff8c00);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 0 20px rgba(255, 64, 129, 0.8);
+    border: none;
+}
+
+.cta-button:hover {
+    background: linear-gradient(45deg, #e60073, #ff5700);
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 64, 129, 1);
+}
+
+/* Keyframes for Hero Reveal */
+@keyframes revealHero {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+ 
